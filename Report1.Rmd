@@ -1,0 +1,31 @@
+---
+title: "SAS Data Exploration "
+author: "Murera Gisa"
+date: "`r Sys.Date()`"
+output: 
+  rmdformats::material: 
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: true
+    highlight: espresso
+toc: yes
+toc_depth: 3
+editor_options: 
+  chunk_output_type: console
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data Source and Description
+
+## Data Source
+
+## Data Description
+
+# Data Table and Visual Charts
+
+## Data Table
+
+## Data Visualization
