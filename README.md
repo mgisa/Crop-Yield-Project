@@ -17,10 +17,10 @@ This project aims to explore the multiple variables relating the food price infl
 
 1.	Meteorological data.
 2.	Agriculture production from Agriculture survey
-3.	International data 
-1.	WFP
-2.	US
-3.	EUROZONE
+3.	International food production data 
+    - World Food Programs
+    - US 
+    - EUROZONE
 
 ## What have been done:
 
