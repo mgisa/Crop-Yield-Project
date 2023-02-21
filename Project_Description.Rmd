@@ -1,0 +1,51 @@
+---
+title: "SAS Data Exploration "
+author: "Murera Gisa & Annie Uwimana"
+date: "`r Sys.Date()`"
+output: 
+  rmdformats::readthedown: 
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: true
+    highlight: espresso
+    toc_depth: 4
+    toc_float: yes
+editor_options: 
+  chunk_output_type: console
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Problem: uncertainty around climate change
+
+-	Climate change affect agriculture production
+-	Inflation depends on agriculture production
+
+# Objectives:
+
+- Taming inflation using meteorological factors affecting agriculture production
+- Simulation of different scenarios
+- Forecasting the agriculture production using meteorological data
+- Prediction of inflation based on agriculture production
+Data source:
+- Meteorological data (Satellite data which have been source from TAMSAT platform through Climate Data Tool,CDT, and the ground level observation might be sourced from Meteo Rwanda if is needed to validate the satellite one).
+- Agriculture production (Season Agriculture Survey)
+- International data (food production data)
+  - WFP
+  - US
+  - EUROZONE
+  
+# What have been done:
+
+- Gathered all the data (time series)
+- Data exploration and Cleaning
+- Preliminary simple correlation analysis
+
+# What we need to achieve:
+
+- Get neighboring countries data (EAC)
+- Get the causal inference from the variables
+- Explore the dynamics of crop yield
+- Get the dynamical correlation analysis
