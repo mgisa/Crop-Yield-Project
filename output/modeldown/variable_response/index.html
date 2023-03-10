@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="../mi2template.css">
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <script>
+    function makeHelpPanel(help_link, docs_link) {
+      return '\
+            <div class="help-panel">\
+              <div class="title"><i class="fa fa-question" aria-hidden="true"></i> Helpful resources</div>\
+              <a href="' + docs_link + '" target="_blank">Technical documentation</a>\
+              <a href="' + help_link + '" target="_blank">Business description</a>\
+            </div>\
+            ';
+    };
+
+    function renderHelpPanels() {
+      var panel = document.getElementsByTagName("help-panel")[0];
+
+      while(panel) {
+        var docs_url = panel.attributes["docs-url"].value; 
+        var help_url = panel.attributes["help-url"].value;
+        
+        var html = makeHelpPanel(help_url, docs_url);
+        panel.outerHTML = html;
+
+        panel = document.getElementsByTagName("help-panel")[0]; 
+        // Not iterating the result because it changes after each iteration
+      }
+    }
+
+    $(document).ready(function(){
+      renderHelpPanels();
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class="container template-home">
+
+    <header>
+      <div class="navbar navbar-default navbar-fixed-top navbar-mi2" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            </a>
+            <a class="navbar-brand navbar-mi2" href="../index.html">modelDown</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-mi2 nav navbar-nav">
+              <li>
+                <a href="../index.html">
+                  <span class="fa fa-home fa-lg"></span>
+
+                </a>
+              </li>
+
+              <li>
+                  <a href="../model_performance/index.html">Model Performance</a>
+              </li>
+              <li>
+                  <a href="../variable_importance/index.html">Variable Importance</a>
+              </li>
+              <li>
+                  <a href="../variable_response/index.html">Variable Response</a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right"></ul>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+        <!--/.container -->
+      </div>
+      <!--/.navbar -->
+    </header>
+
+    <div class="row" style="position: relative; margin-bottom:60px;">
+      <div class="variable-selector-panel">
+    <b>Features</b>
+    <div class="panel panel-default">
+        <ul class="list-group">
+            <li class="list-group-item variable-link">
+                <a href="#arable_size">arable_size</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#crop_type_soya">crop_type_soya</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#rainfall">rainfall</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#crop_type_beans">crop_type_beans</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#atm_pressure">atm_pressure</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#crop_type_sweet_potatoes">crop_type_sweet_potatoes</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#solar_rad">solar_rad</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#evapo_trans">evapo_trans</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#crop_type_vegetables">crop_type_vegetables</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#crop_type_banana">crop_type_banana</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#l_stemp">l_stemp</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#ndvi">ndvi</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#crop_type_Sorghum">crop_type_Sorghum</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#crop_type_Cassava">crop_type_Cassava</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#crop_type_yams">crop_type_yams</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#crop_type_irish_potatoes">crop_type_irish_potatoes</a>
+            </li>
+            <li class="list-group-item variable-link">
+                <a href="#crop_type_Maize">crop_type_Maize</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-push-3 col-md-9 main-content contents">
+    <div class="plot-container">
+        <h2 id="arable_size" class="hasAnchor">
+            <a href="#arable_size" class="anchor"></a>
+            Feature: arable_size
+        </h2>
+        <img class="plot" src="img/variable_response_arable_size_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;c7eebab3ef2c731128f7942240762385&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="crop_type_soya" class="hasAnchor">
+            <a href="#crop_type_soya" class="anchor"></a>
+            Feature: crop_type_soya
+        </h2>
+        <img class="plot" src="img/variable_response_crop_type_soya_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;7bf8aa9d87b403441f522471e7c3f696&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="rainfall" class="hasAnchor">
+            <a href="#rainfall" class="anchor"></a>
+            Feature: rainfall
+        </h2>
+        <img class="plot" src="img/variable_response_rainfall_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;ffb3c29030e34db38bcd60dffabe8a8c&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="crop_type_beans" class="hasAnchor">
+            <a href="#crop_type_beans" class="anchor"></a>
+            Feature: crop_type_beans
+        </h2>
+        <img class="plot" src="img/variable_response_crop_type_beans_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;08e7e8df5e860da1df26aae01bad7dc2&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="atm_pressure" class="hasAnchor">
+            <a href="#atm_pressure" class="anchor"></a>
+            Feature: atm_pressure
+        </h2>
+        <img class="plot" src="img/variable_response_atm_pressure_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;3b375524c2794fa9c0b3ec361b9f0940&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="crop_type_sweet_potatoes" class="hasAnchor">
+            <a href="#crop_type_sweet_potatoes" class="anchor"></a>
+            Feature: crop_type_sweet_potatoes
+        </h2>
+        <img class="plot" src="img/variable_response_crop_type_sweet_potatoes_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;9cc34fd158869d18c922df8266e9acd9&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="solar_rad" class="hasAnchor">
+            <a href="#solar_rad" class="anchor"></a>
+            Feature: solar_rad
+        </h2>
+        <img class="plot" src="img/variable_response_solar_rad_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;7359094116683d80839e2c6f43d9b123&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="evapo_trans" class="hasAnchor">
+            <a href="#evapo_trans" class="anchor"></a>
+            Feature: evapo_trans
+        </h2>
+        <img class="plot" src="img/variable_response_evapo_trans_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;714acbb4be2a0b6b46cfcde9a3e12cce&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="crop_type_vegetables" class="hasAnchor">
+            <a href="#crop_type_vegetables" class="anchor"></a>
+            Feature: crop_type_vegetables
+        </h2>
+        <img class="plot" src="img/variable_response_crop_type_vegetables_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;0e9ff458344fa891a18ea7262bbcb013&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="crop_type_banana" class="hasAnchor">
+            <a href="#crop_type_banana" class="anchor"></a>
+            Feature: crop_type_banana
+        </h2>
+        <img class="plot" src="img/variable_response_crop_type_banana_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;f28e457abdee34c70d0918a4c8eb230e&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="l_stemp" class="hasAnchor">
+            <a href="#l_stemp" class="anchor"></a>
+            Feature: l_stemp
+        </h2>
+        <img class="plot" src="img/variable_response_l_stemp_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;78103e9dc093f54dddfcff193ff0bfbe&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="ndvi" class="hasAnchor">
+            <a href="#ndvi" class="anchor"></a>
+            Feature: ndvi
+        </h2>
+        <img class="plot" src="img/variable_response_ndvi_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;9ef01b0f7486b8c4626e52a4a027289a&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="crop_type_Sorghum" class="hasAnchor">
+            <a href="#crop_type_Sorghum" class="anchor"></a>
+            Feature: crop_type_Sorghum
+        </h2>
+        <img class="plot" src="img/variable_response_crop_type_Sorghum_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;9247eac64e318e5239f3040e9edd2970&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="crop_type_Cassava" class="hasAnchor">
+            <a href="#crop_type_Cassava" class="anchor"></a>
+            Feature: crop_type_Cassava
+        </h2>
+        <img class="plot" src="img/variable_response_crop_type_Cassava_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;172ea903d8d256a7babd5416421c42d7&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="crop_type_yams" class="hasAnchor">
+            <a href="#crop_type_yams" class="anchor"></a>
+            Feature: crop_type_yams
+        </h2>
+        <img class="plot" src="img/variable_response_crop_type_yams_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;88d1dfdea252e45a517e7c05f749c12e&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="crop_type_irish_potatoes" class="hasAnchor">
+            <a href="#crop_type_irish_potatoes" class="anchor"></a>
+            Feature: crop_type_irish_potatoes
+        </h2>
+        <img class="plot" src="img/variable_response_crop_type_irish_potatoes_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;57585857623da9a57746955e6a47bc8e&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+    <div class="plot-container">
+        <h2 id="crop_type_Maize" class="hasAnchor">
+            <a href="#crop_type_Maize" class="anchor"></a>
+            Feature: crop_type_Maize
+        </h2>
+        <img class="plot" src="img/variable_response_crop_type_Maize_partial.png" />
+        <br />
+        <help-panel help-url="https://pbiecek.github.io/ema/partialDependenceProfiles.html" docs-url="https://modeloriented.github.io/DALEX/reference/model_profile.html"></help-panel>
+        <div class="archivist-code"><p>Get this object: <code>archivist::loadFromLocalRepo(md5hash = &quot;5242fc5676c862b98258ebae1aaaaf02&quot;, repoDir = &quot;C:/Users/jmurera/Desktop/Crop_Yield_Fokoue/Crop-Yield-Project/output/modeldown/repository&quot;)</code></p></div>
+    </div>
+</div>
+    </div>
+
+
+  <footer>
+    <div class="footer">
+      <div class="text-center">Site built with <a href="https://github.com/MI2DataLab/modelDown">modelDown</a>.</div>
+      <div class="text-center" style="margin: 0px 0px 5px;">Last updated: 2023-02-28 10:53:49 (session_info: <a href="session_info/session_info.txt">.txt</a>, <a href="session_info/session_info.rda">.rda</a>)</div>
+    </div>
+  </footer>
+
+  </div>
+
+</body>
+</html>

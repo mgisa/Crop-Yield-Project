@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="./mi2template.css">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+
+  <script>
+    function makeHelpPanel(help_link, docs_link) {
+      return '\
+            <div class="help-panel">\
+              <div class="title"><i class="fa fa-question" aria-hidden="true"></i> Helpful resources</div>\
+              <a href="' + docs_link + '" target="_blank">Technical documentation</a>\
+              <a href="' + help_link + '" target="_blank">Business description</a>\
+            </div>\
+            ';
+    };
+
+    function renderHelpPanels() {
+      var panel = document.getElementsByTagName("help-panel")[0];
+
+      while(panel) {
+        var docs_url = panel.attributes["docs-url"].value; 
+        var help_url = panel.attributes["help-url"].value;
+        
+        var html = makeHelpPanel(help_url, docs_url);
+        panel.outerHTML = html;
+
+        panel = document.getElementsByTagName("help-panel")[0]; 
+        // Not iterating the result because it changes after each iteration
+      }
+    }
+
+    $(document).ready(function(){
+      renderHelpPanels();
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class="container template-home">
+
+    <header>
+      <div class="navbar navbar-default navbar-fixed-top navbar-mi2" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            </a>
+            <a class="navbar-brand navbar-mi2" href="./index.html">modelDown</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-mi2 nav navbar-nav">
+              <li>
+                <a href="./index.html">
+                  <span class="fa fa-home fa-lg"></span>
+
+                </a>
+              </li>
+
+              <li>
+                  <a href="./model_performance/index.html">Model Performance</a>
+              </li>
+              <li>
+                  <a href="./variable_importance/index.html">Variable Importance</a>
+              </li>
+              <li>
+                  <a href="./variable_response/index.html">Variable Response</a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right"></ul>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+        <!--/.container -->
+      </div>
+      <!--/.navbar -->
+    </header>
+
+    <div class="row" style="position: relative; margin-bottom:60px;">
+      <header class="intro-header">
+  <div class="container text-center">
+    <h1>modelDown</h1>
+    <p class="lead">Explore your model!</p>
+  </div>
+</header>
+
+
+<br>
+<br>
+
+<div class="row">
+  <div class="col-md-8">
+    <h3 class="my-3">Basic data information</h3>
+    <ul>
+      <li>2664 observations</li>
+      <li>17 columns</li>
+    </ul>
+  </div>
+  <div class="col-md-4" >
+    <h3 class="my-3">Explainers</h3>
+      <ul><li>Ranger <a href='explainers/Ranger.rda'>(download)</a></li></ul>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="text-center">
+  <h3 class="my-3">Summaries for numerical variables</h3>
+  <br>
+  <table class="table table-responsive table-bordered table-hover" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> vars </th>
+   <th style="text-align:right;"> n </th>
+   <th style="text-align:right;"> mean </th>
+   <th style="text-align:right;"> sd </th>
+   <th style="text-align:right;"> median </th>
+   <th style="text-align:right;"> trimmed </th>
+   <th style="text-align:right;"> mad </th>
+   <th style="text-align:right;"> min </th>
+   <th style="text-align:right;"> max </th>
+   <th style="text-align:right;"> range </th>
+   <th style="text-align:right;"> skew </th>
+   <th style="text-align:right;"> kurtosis </th>
+   <th style="text-align:right;"> se </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> arable_size </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.1606776 </td>
+   <td style="text-align:right;"> 0.0857596 </td>
+   <td style="text-align:right;"> 0.9696193 </td>
+   <td style="text-align:right;"> -4.6850967 </td>
+   <td style="text-align:right;"> 2.297762 </td>
+   <td style="text-align:right;"> 6.982859 </td>
+   <td style="text-align:right;"> -0.8236620 </td>
+   <td style="text-align:right;"> 0.7141142 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> rainfall </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.1083528 </td>
+   <td style="text-align:right;"> 0.1133264 </td>
+   <td style="text-align:right;"> 0.7724173 </td>
+   <td style="text-align:right;"> -2.8670457 </td>
+   <td style="text-align:right;"> 2.117307 </td>
+   <td style="text-align:right;"> 4.984353 </td>
+   <td style="text-align:right;"> -0.9391865 </td>
+   <td style="text-align:right;"> 0.9088290 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ndvi </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.1254943 </td>
+   <td style="text-align:right;"> -0.0593192 </td>
+   <td style="text-align:right;"> 1.0253577 </td>
+   <td style="text-align:right;"> -1.5086829 </td>
+   <td style="text-align:right;"> 4.992304 </td>
+   <td style="text-align:right;"> 6.500987 </td>
+   <td style="text-align:right;"> 0.8007172 </td>
+   <td style="text-align:right;"> 1.2161540 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> atm_pressure </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.2302677 </td>
+   <td style="text-align:right;"> 0.0852671 </td>
+   <td style="text-align:right;"> 0.9689871 </td>
+   <td style="text-align:right;"> -1.9692838 </td>
+   <td style="text-align:right;"> 1.302871 </td>
+   <td style="text-align:right;"> 3.272155 </td>
+   <td style="text-align:right;"> -0.5543028 </td>
+   <td style="text-align:right;"> -0.6927641 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> evapo_trans </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.2172997 </td>
+   <td style="text-align:right;"> 0.0322969 </td>
+   <td style="text-align:right;"> 1.3368492 </td>
+   <td style="text-align:right;"> -2.3589643 </td>
+   <td style="text-align:right;"> 1.505432 </td>
+   <td style="text-align:right;"> 3.864396 </td>
+   <td style="text-align:right;"> -0.1951970 </td>
+   <td style="text-align:right;"> -1.0204848 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> l_stemp </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0.0553952 </td>
+   <td style="text-align:right;"> -0.0352355 </td>
+   <td style="text-align:right;"> 1.1894272 </td>
+   <td style="text-align:right;"> -1.9843875 </td>
+   <td style="text-align:right;"> 3.247356 </td>
+   <td style="text-align:right;"> 5.231744 </td>
+   <td style="text-align:right;"> 0.3103236 </td>
+   <td style="text-align:right;"> -0.5089655 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> solar_rad </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.1139773 </td>
+   <td style="text-align:right;"> 0.0409520 </td>
+   <td style="text-align:right;"> 0.9813777 </td>
+   <td style="text-align:right;"> -3.1521893 </td>
+   <td style="text-align:right;"> 2.402786 </td>
+   <td style="text-align:right;"> 5.554976 </td>
+   <td style="text-align:right;"> -0.3541270 </td>
+   <td style="text-align:right;"> 0.1617593 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crop_type_banana </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.4645451 </td>
+   <td style="text-align:right;"> -0.2105156 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.4645451 </td>
+   <td style="text-align:right;"> 2.151836 </td>
+   <td style="text-align:right;"> 2.616381 </td>
+   <td style="text-align:right;"> 1.6866572 </td>
+   <td style="text-align:right;"> 0.8451301 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crop_type_beans </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.4477337 </td>
+   <td style="text-align:right;"> -0.2226937 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.4477337 </td>
+   <td style="text-align:right;"> 2.232632 </td>
+   <td style="text-align:right;"> 2.680366 </td>
+   <td style="text-align:right;"> 1.7842281 </td>
+   <td style="text-align:right;"> 1.1839148 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crop_type_Cassava </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.2739203 </td>
+   <td style="text-align:right;"> -0.2739203 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.2739203 </td>
+   <td style="text-align:right;"> 3.649326 </td>
+   <td style="text-align:right;"> 3.923246 </td>
+   <td style="text-align:right;"> 3.3741385 </td>
+   <td style="text-align:right;"> 9.3883354 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crop_type_irish_potatoes </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.3109844 </td>
+   <td style="text-align:right;"> -0.3109844 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.3109844 </td>
+   <td style="text-align:right;"> 3.214388 </td>
+   <td style="text-align:right;"> 3.525372 </td>
+   <td style="text-align:right;"> 2.9023137 </td>
+   <td style="text-align:right;"> 6.4258374 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crop_type_Maize </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.2786409 </td>
+   <td style="text-align:right;"> -0.2786409 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.2786409 </td>
+   <td style="text-align:right;"> 3.587502 </td>
+   <td style="text-align:right;"> 3.866142 </td>
+   <td style="text-align:right;"> 3.3076185 </td>
+   <td style="text-align:right;"> 8.9436981 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crop_type_Sorghum </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.2416215 </td>
+   <td style="text-align:right;"> -0.2416215 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.2416215 </td>
+   <td style="text-align:right;"> 4.137151 </td>
+   <td style="text-align:right;"> 4.378773 </td>
+   <td style="text-align:right;"> 3.8940676 </td>
+   <td style="text-align:right;"> 13.1687063 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crop_type_soya </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.2902024 </td>
+   <td style="text-align:right;"> -0.2902024 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.2902024 </td>
+   <td style="text-align:right;"> 3.444577 </td>
+   <td style="text-align:right;"> 3.734779 </td>
+   <td style="text-align:right;"> 3.1531903 </td>
+   <td style="text-align:right;"> 7.9455923 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crop_type_sweet_potatoes </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.3245838 </td>
+   <td style="text-align:right;"> -0.3245838 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.3245838 </td>
+   <td style="text-align:right;"> 3.079712 </td>
+   <td style="text-align:right;"> 3.404296 </td>
+   <td style="text-align:right;"> 2.7540942 </td>
+   <td style="text-align:right;"> 5.5871327 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crop_type_vegetables </td>
+   <td style="text-align:right;"> 16 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.3862779 </td>
+   <td style="text-align:right;"> -0.2746787 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.3862779 </td>
+   <td style="text-align:right;"> 2.587838 </td>
+   <td style="text-align:right;"> 2.974116 </td>
+   <td style="text-align:right;"> 2.2007341 </td>
+   <td style="text-align:right;"> 2.8442985 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crop_type_yams </td>
+   <td style="text-align:right;"> 17 </td>
+   <td style="text-align:right;"> 2664 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -0.2683378 </td>
+   <td style="text-align:right;"> -0.2683378 </td>
+   <td style="text-align:right;"> 0.0000000 </td>
+   <td style="text-align:right;"> -0.2683378 </td>
+   <td style="text-align:right;"> 3.725248 </td>
+   <td style="text-align:right;"> 3.993586 </td>
+   <td style="text-align:right;"> 3.4556123 </td>
+   <td style="text-align:right;"> 9.9449898 </td>
+   <td style="text-align:right;"> 0.0193746 </td>
+  </tr>
+</tbody>
+</table>
+  <hr>
+</div>
+
+<br>
+<br>
+    </div>
+
+
+  <footer>
+    <div class="footer">
+      <div class="text-center">Site built with <a href="https://github.com/MI2DataLab/modelDown">modelDown</a>.</div>
+      <div class="text-center" style="margin: 0px 0px 5px;">Last updated: 2023-02-28 10:53:50 (session_info: <a href="session_info/session_info.txt">.txt</a>, <a href="session_info/session_info.rda">.rda</a>)</div>
+    </div>
+  </footer>
+
+  </div>
+
+</body>
+</html>
